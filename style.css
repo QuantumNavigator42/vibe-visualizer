@@ -1,0 +1,22 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  overflow: hidden;
+}
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.controls {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+}
+button, select {
+  margin-right: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
