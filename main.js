@@ -24,12 +24,12 @@
   /* Animation */
   let animationId = null;
   let lastFrame = performance.now();
-  let elapsed = 0;
 
   /* Constants */
   const BAR_SENSITIVITY = 2.0;
   const SPIRAL_SENSITIVITY = 2.5;
   const GALAXY_SENSITIVITY = 3.0;  // sensitivity multiplier for Galaxy mode
+  const GALAXY_COLOR_CYCLE_MS = 1000; // color cycling interval for Galaxy theme
   const TWO_PI = Math.PI * 2;
 
   /* Themes */
@@ -99,6 +99,11 @@
       const intensity = Math.min(sum / dataArray.length / 255 * GALAXY_SENSITIVITY, 1);
       // rotate galaxy
       this.points.rotation.y += 0.001 + intensity * 0.01;
+      // cycle through theme colors
+      if (Array.isArray(currentTheme) && currentTheme.length) {
+        const idx = Math.floor(performance.now() / GALAXY_COLOR_CYCLE_MS) % currentTheme.length;
+        this.points.material.color.set(currentTheme[idx]);
+      }
       // render scene
       this.renderer.render(this.scene, this.camera);
       this._id = requestAnimationFrame(this.animate);
