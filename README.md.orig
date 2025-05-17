@@ -6,7 +6,7 @@ A simple audio visualizer for entertainment purposes. Captures microphone input 
 
 - Real-time FFT audio analysis
 - Animated bar visualizer
-- Multiple color themes (Default, Neon, Sunset, Cyberpunk, Galaxy)
+- Multiple color themes (Default, Neon, Sunset)
 - Start/Stop controls
 - Fullscreen support
 

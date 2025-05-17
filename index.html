@@ -5,18 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vibe Visualizer</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Galaxy mode needs Three.js -->
+  <script src="https://unpkg.com/three@0.161.0/build/three.min.js" defer></script>
 </head>
 <body>
   <canvas id="visualizer"></canvas>
   <div class="controls">
     <button id="start-btn">Start</button>
     <button id="stop-btn" disabled>Stop</button>
+    <select id="mode-selector">
+      <option value="bars">Bars</option>
+      <option value="spiral">Spiral</option>
+      <option value="galaxy">Galaxy</option>  <!-- NEW -->
+    </select>
     <select id="theme-selector">
       <option value="default">Default</option>
       <option value="neon">Neon</option>
       <option value="sunset">Sunset</option>
+      <option value="cyberpunk">Cyberpunk</option>
+      <option value="galaxy">Galaxy</option>  <!-- allow galaxy color palette -->
     </select>
+    <label id="gain-wrap">
+      Gain&nbsp;
+      <input
+        type="range"
+        id="gain-slider"
+        min="0"
+        max="4"
+        step="0.01"
+        value="1"
+      />
+      <output id="gain-val">1.00</output>
+    </label>
+    <button id="fullscreen-btn">Fullscreen</button>
   </div>
-  <script src="main.js"></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
